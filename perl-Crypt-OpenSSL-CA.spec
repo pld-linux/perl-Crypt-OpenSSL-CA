@@ -2,24 +2,23 @@
 %bcond_with	tests		# do perform "make test"
 
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Crypt
-%define	pnam	OpenSSL-CA
+%define		pdir	Crypt
+%define		pnam	OpenSSL-CA
 Summary:	Crypt::OpenSSL::CA - The crypto parts of an X509v3 Certification Authority
-#Summary(pl.UTF-8):	
 Name:		perl-Crypt-OpenSSL-CA
-Version:	0.23
+Version:	0.24
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Crypt/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ce943b9ffa27f94196d5fe59af84b0f3
+# Source0-md5:	0b290daa5b9287d603ebf5bb21ea4d78
 URL:		http://search.cpan.org/dist/Crypt-OpenSSL-CA/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	perl(Devel::Mallinfo)
 %if %{with tests}
 BuildRequires:	perl(Devel::Leak)
-BuildRequires:	perl(Devel::Mallinfo)
 BuildRequires:	perl(File::Slurp)
 BuildRequires:	perl(Inline) >= 0.4
 BuildRequires:	perl(Inline::C)
