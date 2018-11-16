@@ -7,12 +7,13 @@
 Summary:	Crypt::OpenSSL::CA - The crypto parts of an X509v3 Certification Authority
 Name:		perl-Crypt-OpenSSL-CA
 Version:	0.24
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Crypt/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	0b290daa5b9287d603ebf5bb21ea4d78
+Patch0:		%{name}-openssl111.patch
 URL:		http://search.cpan.org/dist/Crypt-OpenSSL-CA/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -57,6 +58,7 @@ been left out for maximum flexibility.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0 -p1
 
 %build
 %{__perl} Build.PL \
