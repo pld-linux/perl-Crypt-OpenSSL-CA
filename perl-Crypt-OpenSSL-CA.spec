@@ -72,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 ./Build install
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,6 +82,21 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorarch}/Crypt/OpenSSL/*.pm
 %{perl_vendorarch}/Crypt/OpenSSL/CA
-%{perl_vendorarch}/auto/Crypt/OpenSSL/CA
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/CONF
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/CONF/CONF.so
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/PrivateKey
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/PrivateKey/PrivateKey.so
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/PublicKey
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/PublicKey/PublicKey.so
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509/X509.so
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509V3_EXT
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509V3_EXT/X509V3_EXT.so
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509_CRL
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509_CRL/X509_CRL.so
+%dir %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509_NAME
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/OpenSSL/CA/X509_NAME/X509_NAME.so
 %{_mandir}/man3/*
-%{_examplesdir}/%{name}-%{version}
+%dir %{_examplesdir}/%{name}-%{version}
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
