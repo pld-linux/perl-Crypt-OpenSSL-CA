@@ -1,7 +1,6 @@
 # Conditional build:
 %bcond_with	tests		# do perform "make test"
 
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Crypt
 %define		pnam	OpenSSL-CA
 Summary:	Crypt::OpenSSL::CA - The crypto parts of an X509v3 Certification Authority
